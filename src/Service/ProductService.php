@@ -19,7 +19,7 @@ class ProductService
     {
         $name = !empty($data['name']) ? $data['name']: false;
         $description = !empty($data['description']) ? $data['description']: false;
-        $price = !empty($data['price']) ? floatval($data['price']) : false;
+        $price = !empty($data['price']) ? floatval($data['price']) : 0;
         $tax = !empty($data['tax']) ? $data['tax']: false;
 
         if(!$name || !$description || !$price || !$tax){
