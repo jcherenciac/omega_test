@@ -19,6 +19,7 @@ use Symfony\Component\Serializer\Serializer;
  */
 class ProductController extends AbstractController
 {
+    const AUTHTOKEN = 'Bearer admintoken';
     /**
      * @var ProductRepository
      */
@@ -76,7 +77,7 @@ class ProductController extends AbstractController
     public function add( Request $request): Response
     {
         $data = json_decode($request->getContent(), true);
-        $authorised = true;
+        $authorised = $request->headers->get('Authorization') === self::AUTHTOKEN;
         if(!$authorised){
             return new JsonResponse(['status'=>'Unauthorized user!'], Response::HTTP_UNAUTHORIZED);
         }
