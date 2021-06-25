@@ -24,7 +24,7 @@ class AppFixtures extends Fixture
         'price' => 10,
         'tax' => [4,10,21]
     ];
-    $times = 10;
+    $times = 20;
 
         for($i = 0; $i < $times; $i++) {
             $tax = $elements['tax'][rand(0,2)];
